@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="/chat/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BROWSR Chat - AI-Powered Browser Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module" crossorigin src="/chat/assets/index-7qjuY_ZX.js"></script>
+    <link rel="stylesheet" crossorigin href="/chat/assets/index-CKqPfG-r.css">
+  </head>
+  <body>
+    <script>
+      (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the search query from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        
+        if (searchQuery) {
+            // Store the query to be used by the React app
+            window.initialSearchQuery = searchQuery;
+            
+            // Clean the URL (optional - removes the query parameter)
+            if (window.history && window.history.replaceState) {
+                const newUrl = window.location.protocol + "//" + 
+                              window.location.host + 
+                              window.location.pathname;
+                window.history.replaceState({path: newUrl}, '', newUrl);
+            }
+        }
+    });
+})();
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
