@@ -1,0 +1,39 @@
+import {b as o, O as u, j as c, Q as i, P as s} from "./index-7qjuY_ZX.js";
+function m(e, t={}) {
+    const {preserveTitleOnUnmount: r=!0} = t
+      , n = o.useRef(null);
+    u( () => {
+        n.current = window.document.title
+    }
+    , []),
+    u( () => {
+        window.document.title = e
+    }
+    , [e]),
+    p( () => {
+        !r && n.current && (window.document.title = n.current)
+    }
+    )
+}
+function p(e) {
+    const t = o.useRef(e);
+    t.current = e,
+    o.useEffect( () => () => {
+        t.current()
+    }
+    , [])
+}
+const f = ({title: e="", component: t=o.Fragment, children: r}) => {
+    const n = t;
+    return m(e + " - " + i),
+    c.jsx(n, {
+        children: r
+    })
+}
+;
+f.propTypes = {
+    children: s.node.isRequired,
+    title: s.string,
+    component: s.elementType
+};
+export {f as P};
